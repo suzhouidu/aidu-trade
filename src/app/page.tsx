@@ -180,74 +180,47 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
       />
-      {/* 1. Hero */}
+      {/* 1. Hero：alxyun 式深色左对齐 + 右侧点阵地图 */}
       <section className="hero">
-        <div className="container">
-          <span className="hero-badge">爱度科技 · 苏州 · 跨境外贸服务</span>
-          <h1>
-            苏州外贸工厂的<span className="hl">出海搭档</span>：独立站、询盘管理、代运营一站搞定
-          </h1>
-          <p className="hero-sub">
-            爱度帮苏州及长三角的中小外贸工厂和贸易公司做独立站、CRM / ERP
-            和代运营——网站获客、询盘自动进系统、AI 帮你跟客户，每个月都有交付、有数据。
-          </p>
-          <div className="hero-cta">
-            <Link href="#diagnosis" className="btn btn-primary">
-              获取免费出海诊断
-            </Link>
-            <Link href="/pricing" className="btn btn-ghost">
-              查看价格
-            </Link>
-          </div>
-          <div className="hero-chips">
-            {PLATFORMS.map((p) => (
-              <span key={p} className="chip">
-                {p}
-              </span>
-            ))}
-          </div>
-          <HeroQr />
-          {/* 系统示意：纯 CSS 看板，不含任何真实数据 */}
-          <div className="hero-visual" aria-hidden="true">
-            <div className="mock-browser">
-              <div className="mock-bar">
-                <span className="mock-dot" />
-                <span className="mock-dot" />
-                <span className="mock-dot" />
-                <span className="mock-url">trade.7887.cn · 询盘管理看板（示意）</span>
-              </div>
-              <div className="mock-body">
-                <div className="mock-col">
-                  <h4>
-                    新询盘 <span>自动入库</span>
-                  </h4>
-                  <div className="mock-row">
-                    网站表单询盘<small>已自动归集到客户池</small>
-                  </div>
-                  <div className="mock-row">
-                    WhatsApp 询盘<small>已自动归集到客户池</small>
-                  </div>
-                  <div className="mock-row">
-                    邮件询盘<small>已自动归集到客户池</small>
-                  </div>
-                </div>
-                <div className="mock-col">
-                  <h4>
-                    跟进中 <span>AI 提醒</span>
-                  </h4>
-                  <div className="mock-row">
-                    待回报价<small>AI 已起草回复，等你确认</small>
-                  </div>
-                  <div className="mock-row">
-                    样品已寄出<small>7 天未回，系统提醒跟进</small>
-                  </div>
-                  <div className="mock-row">
-                    谈判中<small>下次跟进时间已排好</small>
-                  </div>
-                </div>
-              </div>
+        <div className="container hero-inner">
+          <div>
+            <span className="hero-badge">爱度科技 · 苏州 · 跨境外贸服务</span>
+            <h1>
+              苏州外贸工厂的<span className="hl">出海搭档</span>：独立站、询盘管理、代运营一站搞定
+            </h1>
+            <p className="hero-sub">
+              爱度帮苏州及长三角的中小外贸工厂和贸易公司做独立站、CRM / ERP
+              和代运营——网站获客、询盘自动进系统、AI 帮你跟客户，每个月都有交付、有数据。
+            </p>
+            <div className="hero-cta">
+              <Link href="#diagnosis" className="btn btn-primary">
+                获取免费出海诊断 →
+              </Link>
+              <Link href="/pricing" className="btn btn-ghost">
+                查看价格 →
+              </Link>
             </div>
-            <p className="mock-caption">系统示意图，不含真实数据</p>
+            <div className="hero-chips">
+              {PLATFORMS.map((p) => (
+                <span key={p} className="chip">
+                  {p}
+                </span>
+              ))}
+            </div>
+            <HeroQr />
+          </div>
+          {/* 点阵地图示意：纯 CSS 点阵 + 浮动标签，不含真实地图数据 */}
+          <div className="map-visual" aria-hidden="true">
+            <span className="map-dot" style={{ top: "26%", left: "30%" }} />
+            <span className="map-dot" style={{ top: "48%", left: "58%" }} />
+            <span className="map-dot" style={{ top: "64%", left: "38%" }} />
+            <span className="map-tag">
+              <i />苏州 · 中国
+            </span>
+            <span className="map-badge">
+              <b>6</b>
+              <span>个深耕行业</span>
+            </span>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -17,11 +17,22 @@ const NAV = [
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // 首页顶部：透明深色顶栏，与深色 Hero 融为一体；滚动后或内页：白色顶栏。
+  const dark = pathname === "/" && !scrolled;
+
   return (
-    <header className="site-header">
+    <header className={`site-header${dark ? " header-dark" : ""}`}>
       <div className="container header-inner">
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
           <span className="logo-mark" aria-hidden="true">
