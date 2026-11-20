@@ -14,81 +14,12 @@ export const metadata: Metadata = {
 
 const PLATFORMS = ["Google 搜索与广告", "LinkedIn", "Facebook", "WhatsApp", "阿里国际站"];
 
-const INDUSTRIES = [
-  "电子信息",
-  "精密机械",
-  "医疗器械",
-  "智能家居",
-  "家纺 / 婚纱礼服",
-  "汽配",
-];
-
-const AUDIENCES = [
-  {
-    icon: "工",
-    tint: "",
-    tag: "外贸工厂",
-    title: "有产品，没网站，靠展会和老客户接单",
-    body: "做一个能接询盘的多语言独立站，再把询盘管进 CRM：谁问过价、谁要了样品、谁 7 天没回，打开系统一眼就清楚。",
-    link: "/services/website",
-    linkText: "看看独立站 →",
-  },
-  {
-    icon: "贸",
-    tint: "tint-green",
-    tag: "外贸贸易公司",
-    title: "询盘散在微信和邮箱，跟到哪一步没人知道",
-    body: "询盘自动入库、客户分级、跟进提醒、基础进销存：谁问过价、谁该回访了、哪单快丢了，打开系统一眼就清楚。",
-    link: "/services/crm",
-    linkText: "看看 CRM / ERP →",
-  },
-];
-
-const AI_CARDS = [
-  {
-    icon: "信",
-    tint: "",
-    title: "AI 开发信",
-    body: "线索先评分，再按客户情况写多语言开发信草稿；该跟进的客户，系统提前提醒你。",
-  },
-  {
-    icon: "文",
-    tint: "tint-sky",
-    title: "AI 产品文案",
-    body: "产品描述、多语言翻译、社媒文案、SEO 文章，一套口径写出来，不用每篇都从头想。",
-  },
-  {
-    icon: "答",
-    tint: "tint-green",
-    title: "AI 客服接询盘",
-    body: "网站和 WhatsApp 上的询盘先由 AI 应答，答不上来的自动转人工，不让客户等到第二天。",
-  },
-  {
-    icon: "分",
-    tint: "tint-amber",
-    title: "AI 线索评分",
-    body: "哪个询盘最可能成交，系统先排好顺序。业务员每天先跟最值得跟的客户。",
-  },
-  {
-    icon: "表",
-    tint: "tint-violet",
-    title: "AI 数据复盘",
-    body: "每月曝光、询盘数、询盘成本一张表看完，下个月改什么、停什么，有数可依。",
-  },
-];
-
-const CHANNELS = [
-  { name: "Google 搜索与广告", note: "搜索与投放" },
-  { name: "LinkedIn", note: "B2B 获客" },
-  { name: "Facebook", note: "社媒覆盖" },
-  { name: "WhatsApp", note: "询盘跟进" },
-  { name: "阿里国际站", note: "B2B 平台" },
-  /*
-   * TODO（老板确认实际能交付后再放开）：
-   * 以下渠道目前不在首屏展示，待确认交付能力后再加入：
-   * X（英文内容）、Instagram（品牌视觉）、TikTok（短视频）、
-   * YouTube（产品视频）、独立站（自己的阵地）。
-   */
+const PLATFORM_TILES = [
+  { label: "G", name: "Google", bg: "#4285f4" },
+  { label: "in", name: "LinkedIn", bg: "#0a66c2" },
+  { label: "f", name: "Facebook", bg: "#1877f2" },
+  { label: "W", name: "WhatsApp", bg: "#128c7e" },
+  { label: "阿里", name: "阿里国际站", bg: "#ff6a00" },
 ];
 
 const REASONS = [
@@ -109,6 +40,145 @@ const REASONS = [
     tint: "tint-amber",
     title: "系统不按人头收年费",
     body: "CRM / ERP 用开源底座搭，收实施费加年服务费。团队从 5 个人长到 50 个人，不用为多出来的人头再交一份钱。",
+  },
+];
+
+const SITE_SCENARIOS = [
+  {
+    icon: "展",
+    tint: "",
+    title: "产品展示",
+    body: "多语言产品页，参数、图片、视频一次放齐，客户不用先加微信就能看明白。",
+  },
+  {
+    icon: "询",
+    tint: "tint-sky",
+    title: "询盘表单",
+    body: "每个产品页都有询盘入口，客户当场留需求，询盘直接进系统，不丢。",
+  },
+  {
+    icon: "搜",
+    tint: "tint-green",
+    title: "SEO 结构",
+    body: "标题、描述、内链按 SEO 的规矩搭好，Google 和 AI 搜索都找得到你。",
+  },
+  {
+    icon: "译",
+    tint: "tint-amber",
+    title: "多语言",
+    body: "中英双语起步，目标市场要哪个语言就加哪个，内容一套口径。",
+  },
+  {
+    icon: "手",
+    tint: "tint-violet",
+    title: "移动端适配",
+    body: "海外客户大多用手机看站，手机上打开一样清楚，按钮一点就通。",
+  },
+  {
+    icon: "数",
+    tint: "tint-pink",
+    title: "数据统计",
+    body: "谁来了、看了哪个产品、从哪来，一张表看完，下月改什么有数。",
+  },
+];
+
+const CRM_FEATURES = [
+  {
+    icon: "入",
+    tint: "",
+    title: "询盘自动入库",
+    body: "网站表单、邮件、WhatsApp 的询盘自动进 CRM，不用人工一个个抄，丢不了。",
+  },
+  {
+    icon: "级",
+    tint: "tint-sky",
+    title: "客户分级",
+    body: "按意向和价值给客户分级，业务员每天先跟最值得跟的，不凭感觉排队。",
+  },
+  {
+    icon: "提",
+    tint: "tint-green",
+    title: "跟进提醒",
+    body: "该回报价、该寄样品、该回访了，系统提前提醒你，客户不会凉在半路上。",
+  },
+];
+
+const CRM_CARDS = [
+  {
+    title: "询盘管理",
+    checks: [
+      "网站表单、邮件、WhatsApp 询盘自动入库",
+      "客户分级，先跟最值得跟的客户",
+      "跟进提醒，到点系统催你，不用靠记性",
+    ],
+  },
+  {
+    title: "订单与库存",
+    checks: [
+      "基础进销存：库存、订单、发货一处管",
+      "订单归档，从询盘到成交全程可查",
+      "数据在你手里，合作结束完整交还",
+    ],
+  },
+];
+
+const AGENCY_CARDS = [
+  {
+    icon: "搜",
+    tint: "",
+    title: "SEO 代运营",
+    body: "英文文章、产品页优化、GEO 优化，让客户在 Google 和 AI 搜索里找到你。",
+  },
+  {
+    icon: "社",
+    tint: "tint-sky",
+    title: "社媒运营",
+    body: "LinkedIn、Facebook 内容代运营：文案、配图、定时发布，每周有简报。",
+  },
+  {
+    icon: "广",
+    tint: "tint-green",
+    title: "谷歌广告",
+    body: "广告费走你自己的账户，月费加消耗 15% 管理费，花多少你自己看得见。",
+  },
+  {
+    icon: "文",
+    tint: "tint-amber",
+    title: "英文内容",
+    body: "开发信、产品文案、社媒文案、SEO 文章，一套口径写出来，不用每篇从头想。",
+  },
+  {
+    icon: "表",
+    tint: "tint-violet",
+    title: "数据复盘",
+    body: "每月曝光、询盘数、询盘成本一张表看完，下个月改什么、停什么，有数可依。",
+  },
+];
+
+const TEAM = [
+  {
+    icon: "聊",
+    tint: "",
+    title: "售前咨询",
+    body: "先聊你的行业和需求，再给书面报价。诊断本身不收费，也不做硬推销。",
+  },
+  {
+    icon: "交",
+    tint: "tint-sky",
+    title: "项目交付",
+    body: "建站和系统实施有交付清单和验收标准，写进合同，未达标顺延。",
+  },
+  {
+    icon: "AI",
+    tint: "tint-green",
+    title: "AI 技术",
+    body: "开发信、产品文案、客服应答、线索评分，都是我们自己在用的 AI 能力。",
+  },
+  {
+    icon: "售",
+    tint: "tint-amber",
+    title: "售后支持",
+    body: "每个客户有专属对接人，微信群每周同步一次进度。急事直接打电话。",
   },
 ];
 
@@ -180,7 +250,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
       />
-      {/* 1. Hero：alxyun 式深色左对齐 + 右侧点阵地图 */}
+      {/* 1. Hero：深色左对齐 + 右侧点阵地图 */}
       <section className="hero">
         <div className="container hero-inner">
           <div>
@@ -225,22 +295,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. 服务行业 */}
-      <section className="section" style={{ paddingBottom: 0 }}>
+      {/* 2. 重叠卡：压在 Hero 底部 */}
+      <section className="section" style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">我们熟悉的行业</span>
-            <h2 className="section-title">先从苏州产业带做起</h2>
-            <p className="section-sub">
-              电子、精密机械、医疗器械、智能家居、家纺——这些工厂就在我们身边，跑得勤、聊得透。
-            </p>
-          </div>
-          <div className="strip">
-            {INDUSTRIES.map((i) => (
-              <span key={i} className="strip-item">
-                {i}
-              </span>
-            ))}
+          <div className="overlap-card">
+            <h2>外贸获客，效率快人一步！</h2>
+            <p>一个内容，多处分发；一个询盘，多处归集。</p>
+            <div className="platform-tiles">
+              {PLATFORM_TILES.map((t) => (
+                <span key={t.name} className="tile-wrap">
+                  <span className="platform-tile" style={{ background: t.bg }}>
+                    {t.label}
+                  </span>
+                  <em>{t.name}</em>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -250,7 +320,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">WHY AIDU</span>
-            <h2 className="section-title">为什么选爱度</h2>
+            <h2 className="section-title">懂技术，懂外贸，所以更专业</h2>
           </div>
           <div className="grid-3">
             {REASONS.map((r) => (
@@ -264,79 +334,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. 你是哪一类客户 */}
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">WHO IS IT FOR</span>
-            <h2 className="section-title">看看你是哪一类</h2>
-            <p className="section-sub">两类客户，两种打法。对号入座，不用从头讲起。</p>
-          </div>
-          <div className="grid-2">
-            {AUDIENCES.map((a) => (
-              <div className="card" key={a.tag}>
-                <span className={`icon ${a.tint}`}>{a.icon}</span>
-                <span className="tag">{a.tag}</span>
-                <h3>{a.title}</h3>
-                <p>{a.body}</p>
-                <Link href={a.link} className="go">
-                  {a.linkText}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <p className="audience-note">
-            也可承接：跨境电商社媒代运营、品牌出海全案。
-          </p>
-        </div>
-      </section>
-
-      {/* 5. 服务流程 */}
+      {/* 4. 独立站简介 */}
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">HOW IT WORKS</span>
-            <h2 className="section-title">四步跑通：获客 → 询盘 → 跟进 → 成交</h2>
-            <p className="section-sub">
-              网站只是入口，后面是一套系统：询盘自动进 CRM，AI 写跟进草稿，人确认了再发出去。
-            </p>
+            <span className="eyebrow">产品介绍</span>
+            <h2 className="section-title">独立站简介</h2>
+            <p className="section-sub">先有个能接询盘的站，再谈获客和转化。</p>
           </div>
-          <div className="flow">
-            <div className="step">
-              <div className="num">1</div>
-              <h3>获客</h3>
-              <p>多语言独立站 + SEO / GEO + 社媒内容，让海外客户在 Google 和 AI 搜索里找到你。</p>
+          <div className="product-intro">
+            <div className="product-copy">
+              <h3>先有个能接询盘的站</h3>
+              <p>
+                多语言产品站，带询盘表单和 SEO
+                结构。客户在 Google 上找到你、看完产品、当场留询盘——不用先加微信、不用等展会。
+              </p>
+              <div className="scenario-list">
+                <span className="scenario-chip">
+                  展示型 <b>¥9,800 起</b>
+                </span>
+                <span className="scenario-chip">
+                  营销型 <b>¥19,800</b>
+                </span>
+                <span className="scenario-chip">
+                  定制站 <b>¥38,000 起</b>
+                </span>
+              </div>
+              <Link href="/services/website" className="btn btn-primary">
+                看独立站详情
+              </Link>
             </div>
-            <div className="step">
-              <div className="num">2</div>
-              <h3>询盘进系统</h3>
-              <p>网站表单、邮件、WhatsApp 的询盘自动进 CRM，不用人工一个个抄，丢不了。</p>
-            </div>
-            <div className="step">
-              <div className="num">3</div>
-              <h3>AI 跟进</h3>
-              <p>线索先评分，开发信和回复草稿由 AI 起草，报价和承诺发出去之前必须人工确认。</p>
-            </div>
-            <div className="step">
-              <div className="num">4</div>
-              <h3>成交与复盘</h3>
-              <p>从询盘到成交全程可看，每月一张数据表：曝光、询盘数、询盘成本，下月改什么有数。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. 产品介绍 */}
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">PRODUCTS</span>
-            <h2 className="section-title">产品介绍</h2>
-            <p className="section-sub">三条业务线，可以单买一项，也可以整套打包。先解决最痛的，再慢慢补齐。</p>
-          </div>
-
-          {/* 独立站 */}
-          <div className="product-block">
             <div className="product-visual" aria-hidden="true">
               <div className="mock-browser">
                 <div className="mock-bar">
@@ -354,34 +381,44 @@ export default function HomePage() {
               </div>
               <p className="mock-caption">网站示意图，不含真实数据</p>
             </div>
+          </div>
+          <div className="scenario-grid">
+            {SITE_SCENARIOS.map((s) => (
+              <div className="card" key={s.title}>
+                <span className={`icon ${s.tint}`}>{s.icon}</span>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CRM / ERP 简介 */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">产品介绍</span>
+            <h2 className="section-title">CRM / ERP 简介</h2>
+            <p className="section-sub">询盘多了，靠 Excel 管不过来。</p>
+          </div>
+          <div className="product-intro">
             <div className="product-copy">
-              <span className="eyebrow">外贸独立站 / 营销站</span>
-              <h3>先有个能接询盘的站</h3>
+              <h3>询盘自动进系统，跟进不再靠记性</h3>
               <p>
-                多语言产品站，带询盘表单和 SEO
-                结构。客户在 Google 上找到你、看完产品、当场留询盘——不用先加微信、不用等展会。
+                询盘自动入库、客户分级、跟进提醒、基础进销存，都在一套系统里。
+                实施费加年服务费，不按人头收年费，团队长大了不用再交一份钱。
               </p>
               <div className="scenario-list">
-                <span className="scenario-chip">
-                  展示型 <b>¥9,800 起</b>
-                </span>
-                <span className="scenario-chip">
-                  营销型 <b>¥19,800</b>
-                </span>
-                <span className="scenario-chip">
-                  定制站 <b>¥38,000 起</b>
-                </span>
-                <span className="scenario-chip">询盘表单</span>
-                <span className="scenario-chip">SEO 结构</span>
+                <span className="scenario-chip">询盘自动入库</span>
+                <span className="scenario-chip">客户分级</span>
+                <span className="scenario-chip">跟进提醒</span>
+                <span className="scenario-chip">基础进销存</span>
               </div>
-              <Link href="/services/website" className="btn btn-primary">
-                看独立站详情
+              <Link href="/services/crm" className="btn btn-primary">
+                看 CRM / ERP 详情
               </Link>
             </div>
-          </div>
-
-          {/* CRM / ERP */}
-          <div className="product-block flip">
             <div className="product-visual" aria-hidden="true">
               <div className="mock-browser">
                 <div className="mock-bar">
@@ -412,30 +449,71 @@ export default function HomePage() {
               </div>
               <p className="mock-caption">系统示意图，不含真实数据</p>
             </div>
+          </div>
+          <div className="feature-rows">
+            {CRM_FEATURES.map((f) => (
+              <div className="feature-row" key={f.title}>
+                <span className={`icon ${f.tint}`}>{f.icon}</span>
+                <div>
+                  <h3>{f.title}</h3>
+                  <p>{f.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="big-cards">
+            {CRM_CARDS.map((c) => (
+              <div className="big-card" key={c.title}>
+                <h3>{c.title}</h3>
+                <ul>
+                  {c.checks.map((x) => (
+                    <li key={x}>{x}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="btn-pair">
+            <Link href="/services/crm" className="btn btn-primary">
+              查看 CRM 详情 →
+            </Link>
+            <Link href="#diagnosis" className="btn btn-orange">
+              获取书面报价 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. 代运营简介 */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">产品介绍</span>
+            <h2 className="section-title">代运营简介</h2>
+            <p className="section-sub">每个月持续有人帮你获客。</p>
+          </div>
+          <div className="product-intro">
             <div className="product-copy">
-              <span className="eyebrow">外贸 CRM / ERP</span>
-              <h3>询盘多了，靠 Excel 管不过来</h3>
+              <h3>每个月持续有人帮你获客</h3>
               <p>
-                询盘自动入库、客户分级、跟进提醒、基础进销存，都在一套系统里。
-                实施费加年服务费，不按人头收年费，团队长大了不用再交一份钱。
+                SEO、社媒、谷歌广告按月做：英文内容、AI
+                配图、定时发布、每周数据简报。你只管产品和发货，内容有人持续输出。
               </p>
               <div className="scenario-list">
-                <span className="scenario-chip">询盘自动入库</span>
-                <span className="scenario-chip">客户分级</span>
-                <span className="scenario-chip">跟进提醒</span>
-                <span className="scenario-chip">基础进销存</span>
                 <span className="scenario-chip">
-                  年服务费 <b>¥9,800 起</b>
+                  SEO <b>¥3,980/月起</b>
+                </span>
+                <span className="scenario-chip">
+                  社媒 <b>¥3,999/月起</b>
+                </span>
+                <span className="scenario-chip">
+                  全案 <b>¥9,999/月</b>
                 </span>
               </div>
-              <Link href="/services/crm" className="btn btn-primary">
-                看 CRM / ERP 详情
+              <Link href="/services/agency" className="btn btn-primary">
+                看代运营详情
               </Link>
             </div>
-          </div>
-
-          {/* 代运营 */}
-          <div className="product-block">
             <div className="product-visual" aria-hidden="true">
               <div className="mock-browser">
                 <div className="mock-bar">
@@ -472,174 +550,78 @@ export default function HomePage() {
               </div>
               <p className="mock-caption">排期示意图，不含真实数据</p>
             </div>
-            <div className="product-copy">
-              <span className="eyebrow">代运营</span>
-              <h3>每个月持续有人帮你获客</h3>
-              <p>
-                SEO、社媒、谷歌广告按月做：英文内容、AI
-                配图、定时发布、每周数据简报。你只管产品和发货，内容有人持续输出。
-              </p>
-              <div className="scenario-list">
-                <span className="scenario-chip">
-                  SEO <b>¥3,980/月起</b>
-                </span>
-                <span className="scenario-chip">
-                  社媒 <b>¥3,999/月起</b>
-                </span>
-                <span className="scenario-chip">
-                  全案 <b>¥9,999/月</b>
-                </span>
-                <span className="scenario-chip">英文文案 + AI 配图</span>
-                <span className="scenario-chip">周简报 + 月度复盘</span>
-              </div>
-              <Link href="/services/agency" className="btn btn-primary">
-                看代运营详情
-              </Link>
-            </div>
           </div>
-        </div>
-      </section>
-
-      {/* 7. AI 能力墙 */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">AI CAPABILITIES</span>
-            <h2 className="section-title">AI 能力墙</h2>
-            <p className="section-sub">
-              AI 是我们的主业。下面的能力不是外包的卖点，是我们每天在用的工具。
-            </p>
-          </div>
-          <div className="grid-5">
-            {AI_CARDS.map((c) => (
+          <div className="grid-5" style={{ marginTop: 32 }}>
+            {AGENCY_CARDS.map((c) => (
               <div className="card" key={c.title} style={{ padding: 22 }}>
                 <span className={`icon ${c.tint}`} style={{ width: 44, height: 44, fontSize: 19 }}>
                   {c.icon}
                 </span>
-                <h3 style={{ fontSize: 17 }}>
-                  {c.title}
-                  <span className="status-tag">[待填状态]</span>
-                </h3>
+                <h3 style={{ fontSize: 17 }}>{c.title}</h3>
                 <p style={{ fontSize: 14 }}>{c.body}</p>
               </div>
             ))}
           </div>
+          <div style={{ marginTop: 32 }}>
+            <div className="price-strip">
+              <div className="price-strip-item">
+                <h3>展示型独立站</h3>
+                <div className="amount">
+                  ¥9,800 <small>起</small>
+                </div>
+                <p>多语言产品站 + 询盘表单，2–3 周交付</p>
+              </div>
+              <div className="price-strip-item">
+                <h3>营销型</h3>
+                <div className="amount">¥19,800</div>
+                <p>SEO 结构 + GEO 优化 + 产品文案，4–6 周交付</p>
+              </div>
+              <div className="price-strip-item">
+                <h3>定制站</h3>
+                <div className="amount">
+                  ¥38,000 <small>起</small>
+                </div>
+                <p>B2B 门户 + 客户询价 + CRM 打通，按项目排期</p>
+              </div>
+              <div className="price-strip-item">
+                <h3>次年托管维护</h3>
+                <div className="amount">
+                  ¥2,600 <small>/ 年</small>
+                </div>
+                <p>服务器、备份、安全更新与小改动</p>
+              </div>
+            </div>
+            <p className="price-strip-note">价格均为“起”，以书面报价为准。</p>
+            <p className="center mt-2">
+              <Link href="/pricing" className="btn btn-primary">
+                查看完整定价
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 8. 价格条 */}
-      <section className="section section-soft" style={{ paddingTop: 56 }}>
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">PRICING</span>
-            <h2 className="section-title">建站价格，先看个大概</h2>
-          </div>
-          <div className="price-strip">
-            <div className="price-strip-item">
-              <h3>展示型独立站</h3>
-              <div className="amount">
-                ¥9,800 <small>起</small>
-              </div>
-              <p>多语言产品站 + 询盘表单，2–3 周交付</p>
-            </div>
-            <div className="price-strip-item">
-              <h3>营销型</h3>
-              <div className="amount">¥19,800</div>
-              <p>SEO 结构 + GEO 优化 + 产品文案，4–6 周交付</p>
-            </div>
-            <div className="price-strip-item">
-              <h3>定制站</h3>
-              <div className="amount">
-                ¥38,000 <small>起</small>
-              </div>
-              <p>B2B 门户 + 客户询价 + CRM 打通，按项目排期</p>
-            </div>
-            <div className="price-strip-item">
-              <h3>次年托管维护</h3>
-              <div className="amount">
-                ¥2,600 <small>/ 年</small>
-              </div>
-              <p>服务器、备份、安全更新与小改动</p>
-            </div>
-          </div>
-          <p className="price-strip-note">
-            价格均为“起”，以书面报价为准。
-          </p>
-          <p className="center mt-2">
-            <Link href="/pricing" className="btn btn-primary">
-              查看完整定价
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      {/* 9. 覆盖的市场与平台 */}
+      {/* 7. 爱度团队 */}
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">CHANNELS</span>
-            <h2 className="section-title">覆盖的市场与平台</h2>
-            <p className="section-sub">一个内容，多处分发；一个询盘，多处归集。</p>
+            <span className="eyebrow">OUR TEAM</span>
+            <h2 className="section-title">爱度团队</h2>
+            <p className="section-sub">安全可靠的服务，让你专注于业务和产品。</p>
           </div>
-          <div className="platform-grid">
-            {CHANNELS.map((c) => (
-              <div className="platform" key={c.name}>
-                {c.name}
-                <span>{c.note}</span>
+          <div className="grid-4">
+            {TEAM.map((t) => (
+              <div className="card" key={t.title}>
+                <span className={`icon ${t.tint}`}>{t.icon}</span>
+                <h3>{t.title}</h3>
+                <p>{t.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 10. 样板作品（真实项目，不编案例） */}
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">SAMPLE WORK</span>
-            <h2 className="section-title">先看我们自己做的站</h2>
-            <p className="section-sub">
-              客户案例正在积累中。先看我们自己的两个站——建站和内容能力都在上面。
-            </p>
-          </div>
-          <div className="grid-3">
-            <div className="card">
-              <span className="tag">爱度科技主站</span>
-              <h3>7887.cn</h3>
-              <p>
-                爱度科技主站：AI 数字员工、AI 智能客服、GEO 优化、AI
-                获客系统等产品线都在上面跑，独立站的版式、结构和留资流程就是按这套做的。
-              </p>
-              <a href="https://7887.cn" target="_blank" rel="noreferrer" className="go">
-                访问 7887.cn →
-              </a>
-            </div>
-            <div className="card">
-              <span className="tag">出海内容样板</span>
-              <h3>iDu Tools</h3>
-              <p>
-                英文 AI 软件目录站：3,600 多个工具、对比评测文章和榜单，SEO
-                结构、内容生产和数据复盘都在上面验证过。出海内容怎么做，照这个路子来。
-              </p>
-              <a href="https://www.idutools.com" target="_blank" rel="noreferrer" className="go">
-                访问 idutools.com →
-              </a>
-            </div>
-            <div className="card" style={{ border: "2px dashed var(--blue-200)" }}>
-              <span className="tag">首批合作客户招募</span>
-              <h3>成为第一批案例客户</h3>
-              <p>
-                前 [待填] 家合作客户享 [待填] 优惠。你的站和系统跑起来后，经你同意，我们会把你的项目写成案例放在这里。
-              </p>
-              <Link href="#diagnosis" className="go">
-                申请首批合作 →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 11. 免费出海诊断 */}
+      {/* 8. 免费出海诊断 */}
       <section className="section" id="diagnosis">
         <div className="container">
           <div className="section-head">
@@ -667,10 +649,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. CTA */}
-      <CtaBand />
+      {/* 9. CTA（对角分割带 + 亮蓝大卡） */}
+      <section className="diagonal-band">
+        <div className="container">
+          <CtaBand />
+        </div>
+      </section>
 
-      {/* 13. FAQ */}
+      {/* 10. FAQ */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="section-head">

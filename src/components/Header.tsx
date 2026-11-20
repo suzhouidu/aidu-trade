@@ -55,6 +55,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="header-cta">
+          <Link href="/pricing" className="btn btn-green btn-sm">
+            查看价格
+          </Link>
           <Link href="/#diagnosis" className="btn btn-primary btn-sm">
             免费出海诊断
           </Link>

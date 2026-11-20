@@ -35,6 +35,10 @@ export default function Footer() {
               帮国内中小外贸企业做独立站、CRM / ERP
               和代运营——网站获客、询盘进系统、AI 帮你跟客户，每个月都有交付、有数据。
             </p>
+            <div className="footer-qr">
+              <WecomQr />
+              <p>官方媒体：扫码加企业微信，发产品资料直接聊，咨询不收费。</p>
+            </div>
             <p className="footer-meta">
               公司全称：[待填]
               <br />
@@ -48,31 +52,31 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4>服务</h4>
+            <h4>产品与服务</h4>
             <Link href="/services/website">外贸独立站 / 营销站</Link>
             <Link href="/services/crm">外贸 CRM / ERP</Link>
             <Link href="/services/agency">代运营（SEO / 社媒 / 广告）</Link>
             <Link href="/pricing">定价</Link>
           </div>
           <div>
-            <h4>了解爱度</h4>
+            <h4>关于我们</h4>
+            <Link href="/contact">联系我们</Link>
             <Link href="/cases">案例与样板</Link>
             <Link href="/compare">我们和同行有什么不同</Link>
-            <Link href="/contact">联系我们</Link>
             <Link href="/quote">获取报价</Link>
             <a href="https://7887.cn" target="_blank" rel="noreferrer">
               爱度科技主站
             </a>
           </div>
           <div>
-            <h4>承诺口径</h4>
-            <p>
+            <h4>服务与支持</h4>
+            <a href="tel:18151772888">电话：18151772888</a>
+            <Link href="/#diagnosis">微信咨询：扫码加企业微信</Link>
+            <span>邮箱：[待填]</span>
+            <span>服务时间：工作日 9:00–18:00</span>
+            <p style={{ marginTop: 12 }}>
               我们只承诺交付物、周期与验收标准，不承诺询盘量、排名、成交额、涨粉数。价格均为“起”，具体以书面报价为准。
             </p>
-            <div className="footer-qr">
-              <WecomQr />
-              <p>扫码加企业微信，发产品资料直接聊，咨询不收费。</p>
-            </div>
           </div>
         </div>
         <div className="footer-bottom">

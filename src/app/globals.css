@@ -108,7 +108,8 @@ section[id] { scroll-margin-top: 84px; }
 }
 .logo small { display: block; font-size: 11px; font-weight: 500; color: var(--muted); line-height: 1.25; }
 .main-nav { display: none; }
-.header-cta { margin-left: auto; }
+.header-cta { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.header-cta .btn-green { display: none; }
 .menu-btn {
   display: inline-flex; align-items: center; justify-content: center;
   width: 44px; height: 44px; margin-left: auto;
@@ -551,13 +552,83 @@ table.compare td:first-child { font-weight: 700; color: var(--ink); white-space:
 .mock-pipe-col h5 { margin: 0 0 10px; font-size: 13px; color: var(--blue-dark); }
 .mock-pipe-col .mock-row { font-size: 12.5px; padding: 8px 10px; }
 
-/* ---------- ≥640px ---------- */
+/* ---------- 1:1 复刻 alxyun：重叠卡 / 平台方块 / 团队 / 对角 CTA 带 ---------- */
+.overlap-card {
+  position: relative; z-index: 2;
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 24px 48px rgba(8, 15, 44, 0.12);
+  margin-top: -56px; padding: 36px 24px 30px;
+  text-align: center; overflow: hidden;
+}
+.overlap-card::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 84px;
+  background: var(--blue-navy);
+  clip-path: polygon(0 0, 100% 0, 55% 100%, 0 100%);
+}
+.overlap-card h2 { font-size: 26px; margin-bottom: 8px; position: relative; }
+.overlap-card p { position: relative; }
+.platform-tiles { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 22px; position: relative; }
+.platform-tile {
+  width: 52px; height: 52px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 19px; font-weight: 800;
+  box-shadow: 0 6px 16px rgba(8, 15, 44, 0.16);
+}
+.platform-tile span { display: block; font-size: 11px; font-weight: 600; opacity: 0.9; }
+.platform-tile small { display: block; font-size: 10px; font-weight: 500; opacity: 0.85; }
+.tile-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.tile-wrap em { font-style: normal; font-size: 12px; color: var(--muted); font-weight: 600; }
+/* 产品简介：左文右图 */
+.product-intro { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+.product-intro .product-copy h3 { font-size: 22px; }
+.scenario-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+/* 特性行（图标在左，文字在右） */
+.feature-row {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: #fff; border: 1px solid #e8eef5; border-radius: var(--radius);
+  padding: 20px; box-shadow: 0 2px 12px rgba(8, 15, 44, 0.05);
+}
+.feature-row h3 { font-size: 17px; margin-bottom: 4px; }
+.feature-row p { font-size: 14.5px; margin: 0; }
+.feature-rows { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+/* 大卡（绿对勾要点） */
+.big-card {
+  background: #fff; border: 1px solid #e8eef5; border-radius: var(--radius);
+  padding: 28px; box-shadow: 0 2px 12px rgba(8, 15, 44, 0.05);
+}
+.big-card h3 { font-size: 20px; margin-bottom: 14px; }
+.big-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.big-card li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--body); }
+.big-card li::before {
+  content: "✓"; flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--green-bg); color: #047857; font-weight: 800; font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.big-cards { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+.btn-pair { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+/* 绿 / 橙按钮（alxyun 配色，文字用深色保证对比度） */
+.btn-green { background: #059669; color: #fff; box-shadow: 0 10px 24px rgba(5, 150, 105, 0.3); }
+.btn-green:hover { background: #047857; }
+.btn-orange { background: var(--orange); color: var(--ink); box-shadow: 0 10px 24px rgba(255, 164, 47, 0.35); }
+.btn-orange:hover { background: #fb923c; }
+/* 团队 4 列 */
+.grid-4 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+/* 对角分割 CTA 带 */
+.diagonal-band {
+  background: linear-gradient(155deg, var(--bg-soft) 0 52%, var(--blue-navy) 52% 100%);
+  padding: 72px 0 88px;
+}
 @media (min-width: 640px) {
   .hero { padding: 140px 0 72px; }
   .hero h1 { font-size: 44px; }
   .hero-cta .btn { flex: 0 1 auto; }
   .grid-3, .grid-6 { grid-template-columns: 1fr 1fr; }
   .grid-5 { grid-template-columns: 1fr 1fr; }
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+  .scenario-grid { grid-template-columns: 1fr 1fr; }
+  .big-cards { grid-template-columns: 1fr 1fr; }
+  .overlap-card { padding: 40px 48px 34px; }
+  .overlap-card h2 { font-size: 32px; }
   .flow { grid-template-columns: 1fr 1fr; }
   .price-strip { grid-template-columns: 1fr 1fr; }
   .price-grid { grid-template-columns: 1fr 1fr; }
@@ -580,8 +651,14 @@ table.compare td:first-child { font-weight: 700; color: var(--ink); white-space:
   .map-visual { min-height: 380px; }
   .section { padding: 88px 0; }
   .section-title { font-size: 38px; }
-  .page-hero { padding: 72px 0 64px; }
+  .page-hero { padding: 124px 0 64px; }
   .page-hero h1 { font-size: 42px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .scenario-grid { grid-template-columns: repeat(3, 1fr); }
+  .feature-rows { grid-template-columns: repeat(3, 1fr); }
+  .product-intro { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .header-cta { display: flex; gap: 10px; }
+  .header-cta .btn-green { display: inline-flex; }
   .main-nav { display: flex; gap: 4px; margin-left: auto; }
   .main-nav a {
     color: var(--body); font-size: 15px; font-weight: 600;
