@@ -77,51 +77,6 @@ const AI_CARDS = [
   },
 ];
 
-const SERVICE_TILES = [
-  {
-    icon: "站",
-    tint: "",
-    title: "建站",
-    body: "多语言独立站，2–6 周交付，带询盘表单和 SEO 结构。",
-    link: "/services/website",
-  },
-  {
-    icon: "搜",
-    tint: "tint-sky",
-    title: "SEO / GEO",
-    body: "让 Google 和 AI 搜索找到你，品牌内容能被引用和推荐。",
-    link: "/services/agency",
-  },
-  {
-    icon: "发",
-    tint: "tint-pink",
-    title: "社媒代运营",
-    body: "5 个平台，60 条内容 / 月起，英文文案 + AI 配图。",
-    link: "/services/agency",
-  },
-  {
-    icon: "投",
-    tint: "tint-amber",
-    title: "广告代投",
-    body: "谷歌广告代运营，月费 + 消耗 15%，广告费走你自己的账户。",
-    link: "/services/agency",
-  },
-  {
-    icon: "管",
-    tint: "tint-green",
-    title: "CRM / ERP",
-    body: "询盘 pipeline + 客户池，不按人头收年费。",
-    link: "/services/crm",
-  },
-  {
-    icon: "数",
-    tint: "tint-violet",
-    title: "数据复盘",
-    body: "月报 + 下月计划 + 续费提醒，先收月费再继续做。",
-    link: "/pricing",
-  },
-];
-
 const CHANNELS = [
   { name: "Google 搜索与广告", note: "搜索与投放" },
   { name: "LinkedIn", note: "B2B 获客" },
@@ -317,8 +272,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. 你是哪一类客户 */}
+      {/* 3. 为什么选爱度 */}
       <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">WHY AIDU</span>
+            <h2 className="section-title">为什么选爱度</h2>
+          </div>
+          <div className="grid-3">
+            {REASONS.map((r) => (
+              <div className="card" key={r.title}>
+                <span className={`icon ${r.tint}`}>{r.icon}</span>
+                <h3>{r.title}</h3>
+                <p>{r.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. 你是哪一类客户 */}
+      <section className="section section-soft">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">WHO IS IT FOR</span>
@@ -344,8 +318,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. 服务流程 */}
-      <section className="section section-soft">
+      {/* 5. 服务流程 */}
+      <section className="section">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">HOW IT WORKS</span>
@@ -379,8 +353,209 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4b. 价格条 */}
-      <section className="section" style={{ paddingTop: 56 }}>
+      {/* 6. 产品介绍 */}
+      <section className="section section-soft">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">PRODUCTS</span>
+            <h2 className="section-title">产品介绍</h2>
+            <p className="section-sub">三条业务线，可以单买一项，也可以整套打包。先解决最痛的，再慢慢补齐。</p>
+          </div>
+
+          {/* 独立站 */}
+          <div className="product-block">
+            <div className="product-visual" aria-hidden="true">
+              <div className="mock-browser">
+                <div className="mock-bar">
+                  <span className="mock-dot" />
+                  <span className="mock-dot" />
+                  <span className="mock-dot" />
+                  <span className="mock-url">your-site.com（示意）</span>
+                </div>
+                <div style={{ padding: 18 }}>
+                  <div className="skel-hero">多语言独立站首页</div>
+                  <div className="skel-line" style={{ width: "82%" }} />
+                  <div className="skel-line" style={{ width: "64%" }} />
+                  <div className="skel-line" style={{ width: "48%", marginBottom: 0 }} />
+                </div>
+              </div>
+              <p className="mock-caption">网站示意图，不含真实数据</p>
+            </div>
+            <div className="product-copy">
+              <span className="eyebrow">外贸独立站 / 营销站</span>
+              <h3>先有个能接询盘的站</h3>
+              <p>
+                多语言产品站，带询盘表单和 SEO
+                结构。客户在 Google 上找到你、看完产品、当场留询盘——不用先加微信、不用等展会。
+              </p>
+              <div className="scenario-list">
+                <span className="scenario-chip">
+                  展示型 <b>¥9,800 起</b>
+                </span>
+                <span className="scenario-chip">
+                  营销型 <b>¥19,800</b>
+                </span>
+                <span className="scenario-chip">
+                  定制站 <b>¥38,000 起</b>
+                </span>
+                <span className="scenario-chip">询盘表单</span>
+                <span className="scenario-chip">SEO 结构</span>
+              </div>
+              <Link href="/services/website" className="btn btn-primary">
+                看独立站详情
+              </Link>
+            </div>
+          </div>
+
+          {/* CRM / ERP */}
+          <div className="product-block flip">
+            <div className="product-visual" aria-hidden="true">
+              <div className="mock-browser">
+                <div className="mock-bar">
+                  <span className="mock-dot" />
+                  <span className="mock-dot" />
+                  <span className="mock-dot" />
+                  <span className="mock-url">CRM · 询盘 pipeline（示意）</span>
+                </div>
+                <div style={{ padding: 18 }}>
+                  <div className="mock-pipe">
+                    <div className="mock-pipe-col">
+                      <h5>新询盘</h5>
+                      <div className="mock-row">网站表单</div>
+                      <div className="mock-row">WhatsApp</div>
+                    </div>
+                    <div className="mock-pipe-col">
+                      <h5>跟进中</h5>
+                      <div className="mock-row">待回报价</div>
+                      <div className="mock-row">样品已寄</div>
+                    </div>
+                    <div className="mock-pipe-col">
+                      <h5>已成交</h5>
+                      <div className="mock-row">订单归档</div>
+                      <div className="mock-row">复盘记录</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p className="mock-caption">系统示意图，不含真实数据</p>
+            </div>
+            <div className="product-copy">
+              <span className="eyebrow">外贸 CRM / ERP</span>
+              <h3>询盘多了，靠 Excel 管不过来</h3>
+              <p>
+                询盘自动入库、客户分级、跟进提醒、基础进销存，都在一套系统里。
+                实施费加年服务费，不按人头收年费，团队长大了不用再交一份钱。
+              </p>
+              <div className="scenario-list">
+                <span className="scenario-chip">询盘自动入库</span>
+                <span className="scenario-chip">客户分级</span>
+                <span className="scenario-chip">跟进提醒</span>
+                <span className="scenario-chip">基础进销存</span>
+                <span className="scenario-chip">
+                  年服务费 <b>¥9,800 起</b>
+                </span>
+              </div>
+              <Link href="/services/crm" className="btn btn-primary">
+                看 CRM / ERP 详情
+              </Link>
+            </div>
+          </div>
+
+          {/* 代运营 */}
+          <div className="product-block">
+            <div className="product-visual" aria-hidden="true">
+              <div className="mock-browser">
+                <div className="mock-bar">
+                  <span className="mock-dot" />
+                  <span className="mock-dot" />
+                  <span className="mock-dot" />
+                  <span className="mock-url">代运营 · 内容排期（示意）</span>
+                </div>
+                <div style={{ padding: 18 }}>
+                  <div className="mock-cal">
+                    <div>
+                      周一<span>SEO 文章</span>
+                    </div>
+                    <div>
+                      周二<span>社媒图文</span>
+                    </div>
+                    <div>
+                      周三<span>产品短视频</span>
+                    </div>
+                    <div>
+                      周四<span>社媒图文</span>
+                    </div>
+                    <div>
+                      周五<span>SEO 文章</span>
+                    </div>
+                    <div>
+                      周六<span>客户案例</span>
+                    </div>
+                    <div>
+                      周日<span>数据简报</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p className="mock-caption">排期示意图，不含真实数据</p>
+            </div>
+            <div className="product-copy">
+              <span className="eyebrow">代运营</span>
+              <h3>每个月持续有人帮你获客</h3>
+              <p>
+                SEO、社媒、谷歌广告按月做：英文内容、AI
+                配图、定时发布、每周数据简报。你只管产品和发货，内容有人持续输出。
+              </p>
+              <div className="scenario-list">
+                <span className="scenario-chip">
+                  SEO <b>¥3,980/月起</b>
+                </span>
+                <span className="scenario-chip">
+                  社媒 <b>¥3,999/月起</b>
+                </span>
+                <span className="scenario-chip">
+                  全案 <b>¥9,999/月</b>
+                </span>
+                <span className="scenario-chip">英文文案 + AI 配图</span>
+                <span className="scenario-chip">周简报 + 月度复盘</span>
+              </div>
+              <Link href="/services/agency" className="btn btn-primary">
+                看代运营详情
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. AI 能力墙 */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">AI CAPABILITIES</span>
+            <h2 className="section-title">AI 能力墙</h2>
+            <p className="section-sub">
+              AI 是我们的主业。下面的能力不是外包的卖点，是我们每天在用的工具。
+            </p>
+          </div>
+          <div className="grid-5">
+            {AI_CARDS.map((c) => (
+              <div className="card" key={c.title} style={{ padding: 22 }}>
+                <span className={`icon ${c.tint}`} style={{ width: 44, height: 44, fontSize: 19 }}>
+                  {c.icon}
+                </span>
+                <h3 style={{ fontSize: 17 }}>
+                  {c.title}
+                  <span className="status-tag">[待填状态]</span>
+                </h3>
+                <p style={{ fontSize: 14 }}>{c.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. 价格条 */}
+      <section className="section section-soft" style={{ paddingTop: 56 }}>
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">PRICING</span>
@@ -425,57 +600,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. AI 能力墙 */}
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">AI CAPABILITIES</span>
-            <h2 className="section-title">AI 能力墙</h2>
-            <p className="section-sub">
-              AI 是我们的主业。下面的能力不是外包的卖点，是我们每天在用的工具。
-            </p>
-          </div>
-          <div className="grid-5">
-            {AI_CARDS.map((c) => (
-              <div className="card" key={c.title} style={{ padding: 22 }}>
-                <span className={`icon ${c.tint}`} style={{ width: 44, height: 44, fontSize: 19 }}>
-                  {c.icon}
-                </span>
-                <h3 style={{ fontSize: 17 }}>
-                  {c.title}
-                  <span className="status-tag">[待填状态]</span>
-                </h3>
-                <p style={{ fontSize: 14 }}>{c.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. 服务能力六宫格 */}
-      <section className="section section-blue">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">WHAT WE DO</span>
-            <h2 className="section-title">六项服务，一次配齐</h2>
-            <p className="section-sub">可以单买一项，也可以整套打包。先解决最痛的，再慢慢补齐。</p>
-          </div>
-          <div className="grid-6">
-            {SERVICE_TILES.map((t) => (
-              <div className="card" key={t.title}>
-                <span className={`icon ${t.tint}`}>{t.icon}</span>
-                <h3>{t.title}</h3>
-                <p>{t.body}</p>
-                <Link href={t.link} className="go">
-                  了解更多 →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. 覆盖的市场与平台 */}
+      {/* 9. 覆盖的市场与平台 */}
       <section className="section">
         <div className="container">
           <div className="section-head">
@@ -494,7 +619,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. 样板作品（真实项目，不编案例） */}
+      {/* 10. 样板作品（真实项目，不编案例） */}
       <section className="section section-soft">
         <div className="container">
           <div className="section-head">
@@ -541,27 +666,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. 为什么选爱度 */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">WHY AIDU</span>
-            <h2 className="section-title">为什么选爱度</h2>
-          </div>
-          <div className="grid-3">
-            {REASONS.map((r) => (
-              <div className="card" key={r.title}>
-                <span className={`icon ${r.tint}`}>{r.icon}</span>
-                <h3>{r.title}</h3>
-                <p>{r.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 10. 免费出海诊断 */}
-      <section className="section section-soft" id="diagnosis">
+      {/* 11. 免费出海诊断 */}
+      <section className="section" id="diagnosis">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">FREE DIAGNOSIS</span>
@@ -588,10 +694,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 11. CTA */}
+      {/* 12. CTA */}
       <CtaBand />
 
-      {/* 12. FAQ */}
+      {/* 13. FAQ */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="section-head">
