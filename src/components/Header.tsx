@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,14 +16,17 @@ const NAV = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="logo">
-          <span className="logo-mark">爱</span>
+        <Link href="/" className="logo" onClick={() => setOpen(false)}>
+          <span className="logo-mark" aria-hidden="true">
+            Ai
+          </span>
           <span>
             爱度科技
             <small>跨境外贸服务</small>
@@ -40,11 +44,27 @@ export default function Header() {
           ))}
         </nav>
         <div className="header-cta">
-          <Link href="/contact" className="btn btn-primary btn-sm">
-            免费获取方案
+          <Link href="/#diagnosis" className="btn btn-primary btn-sm">
+            免费出海诊断
           </Link>
         </div>
+        <button
+          type="button"
+          className="menu-btn"
+          aria-label={open ? "关闭菜单" : "打开菜单"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? "✕" : "☰"}
+        </button>
       </div>
+      <nav className={`mobile-nav${open ? " open" : ""}`} aria-label="移动端导航">
+        {NAV.map((item) => (
+          <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

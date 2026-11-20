@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function CasesPage() {
 
       <section className="section">
         <div className="container">
-          <div className="sample-work">
+          <div className="grid-3">
             <div className="card">
               <span className="tag">爱度科技主站</span>
               <h3>7887.cn</h3>
@@ -52,6 +53,16 @@ export default function CasesPage() {
                 访问 idutools.com →
               </a>
             </div>
+            <div className="card" style={{ border: "2px dashed var(--blue-200)" }}>
+              <span className="tag">首批合作客户招募</span>
+              <h3>成为第一批案例客户</h3>
+              <p>
+                前 [待填] 家合作客户享 [待填] 优惠。你的站和系统跑起来后，经你同意，我们会把你的项目写成案例放在这里。
+              </p>
+              <Link href="/#diagnosis" className="go">
+                申请首批合作 →
+              </Link>
+            </div>
           </div>
           <div className="mt-4">
             <div className="promise-box">
@@ -64,7 +75,7 @@ export default function CasesPage() {
 
       <CtaBand
         title="想成为第一批案例客户？"
-        text="前 3 个客户按首批价签约，独立站与代运营都有优惠。先聊 15 分钟，免费出方案。"
+        text="前 [待填] 家合作客户享 [待填] 优惠。先聊 15 分钟，免费出方案。"
       />
     </>
   );

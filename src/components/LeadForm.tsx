@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const INDUSTRIES = [
   "电子 / 数码配件",
@@ -26,13 +26,19 @@ const BUDGETS = [
 export default function LeadForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [error, setError] = useState("");
+  const mountedAt = useRef<number>(Date.now());
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (status === "sending") return;
     setStatus("sending");
     setError("");
     const form = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(form.entries());
+    const payload: Record<string, string> = { kind: "contact" };
+    form.forEach((v, k) => {
+      payload[k] = String(v);
+    });
+    payload.ts = String(mountedAt.current);
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
@@ -140,6 +146,11 @@ export default function LeadForm() {
             name="message"
             placeholder="简单说说你的情况：现在有没有网站、主要卖什么产品、想先解决哪个问题……"
           />
+        </div>
+        {/* 蜜罐字段：正常用户看不到也填不到，机器人会填 */}
+        <div className="hp-field" aria-hidden="true">
+          <label htmlFor="hp">请勿填写此项</label>
+          <input id="hp" name="hp" tabIndex={-1} autoComplete="off" />
         </div>
       </div>
       <div className="mt-2">
